@@ -20,6 +20,6 @@ for key,value in keys.items():
 
 initial_funds = []
 for key, value in vote_stake.items():
-    initial_funds.append({"address": key, "value": value})
+    initial_funds.append({"address": bridge.jcli_key_address(bridge.prefix_bech32("ed25519_pk", key)), "value": value})
 
 print(json.dumps(initial_funds))

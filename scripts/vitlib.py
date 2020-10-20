@@ -53,6 +53,15 @@ class VITBridge:
             raise Exception("Unknown error converting jcli key to bytes")
         return p.stdout.rstrip()
 
+    def jcli_key_address(self, key, prefix="ca"):
+        cli_args = [ "jcli", "address", "account", key, "--prefix", prefix]
+        if self.network_magic != 0:
+            cli_args.append("--testing")
+        p = subprocess.run(cli_args, capture_output=True, text=True)
+        if p.returncode != 0:
+            raise Exception("Unknown error generating address from pubkey")
+        return p.stdout.rstrip()
+
     def jcli_sign(self, key, text):
         (tf, key_file) = tempfile.mkstemp()
         (tf, text_file) = tempfile.mkstemp()
