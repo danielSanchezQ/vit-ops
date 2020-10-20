@@ -2,7 +2,7 @@
 
 # Vote Registration
 
-To register to vote, a ed25519extended key needs generated with jcli and a stake secret key and payment secret key need to be provided.
+To register to vote, a ed25519extended key needs generated with jcli and a stake secret key and payment secret key need to be provided. Hardware wallets and pointer addresses are not supported at this time. Rewards that haven't been withdrawn are also not included.
 
 Usage:
 
